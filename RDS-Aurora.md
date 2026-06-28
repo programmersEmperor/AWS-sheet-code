@@ -106,7 +106,7 @@ The goal is not to memorize service definitions. The goal is to map **scenario p
 | Need OLTP relational application database | Database type | RDS or Aurora | Redshift/Athena | OLTP means relational DB |
 | Need OLAP warehouse analytics | Database type | Redshift, not usually RDS/Aurora | RDS primary | OLAP means warehouse |
 | Need ad-hoc SQL directly on S3 | Database type | Athena, not RDS/Aurora | RDS | Query S3 means Athena |
-| Need cache repeated reads | Performance/cache | ElastiCache or DAX depending DB | Read replica for every case | Cache is different from replica |
+| Need cache repeated reads | Performance/cache | ElastiCache | Read replica for every case | Cache is different from replica |
 | Need reduce DB read latency for hot data | Performance/cache | ElastiCache | Multi-AZ | Cache handles hot reads |
 | Need database migration with minimal downtime | Migration | AWS DMS | Manual dump only | Minimal downtime migration means DMS |
 | Need convert schema between engines | Migration | AWS Schema Conversion Tool | DMS alone | Schema conversion means SCT |
