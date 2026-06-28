@@ -18,12 +18,10 @@ Every table has exactly two columns:
 
 | Scenario / requirement | Solution |
 |---|---|
-| New basic Aurora provisioned cluster is created | **1 writer, 0 readers** unless you explicitly add Aurora Replicas. Storage is replicated automatically. |
-| New Aurora Serverless v2 cluster is created | **1 serverless writer, 0 readers** unless you explicitly add readers. Serverless v2 scales ACUs, not reader count. |
 | Aurora stores data in a shared cluster volume | Storage is separate from compute. The writer and readers use the same shared Aurora storage volume. |
-| Aurora storage layer is replicated across AZs | This is **storage replication**, not readable DB instances. Do not confuse storage copies with read replicas. |
-| Aurora data grows over time | Aurora storage grows automatically. This does not mean compute or readers scale automatically. |
-| Basic Aurora cluster has no reader and writer fails | Aurora recreates the primary instance. Failover is faster when Aurora Replicas already exist. |
+| Storage layer replicated across AZs | Aurora |
+| Storage grows automatically | Aurora |
+| What happens when Aurora cluster with only 1 instance (writer) and it fails | Aurora recreates the primary instance in the same region. |
 | Need faster Aurora failover | Add Aurora Replicas in different AZs so one can be promoted. |
 | Need maximum Aurora read replicas | Aurora supports up to **15 Aurora Replicas** per cluster. |
 | Need more writer instances in normal Aurora | Be careful: standard Aurora has **one writer**. Scale/optimize the writer or redesign. |
